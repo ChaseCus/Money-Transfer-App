@@ -22,12 +22,12 @@ public class UserSqlDAO implements UserDao {
     public UserSqlDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    //Finding username with username String
+
     @Override
     public int findIdByUsername(String username) {
         return jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
     }
-    //Finding all information in a list. No input
+
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
@@ -41,7 +41,7 @@ public class UserSqlDAO implements UserDao {
 
         return users;
     }
-    //Find username by inputing username
+
     @Override
     public User findByUsername(String username) throws UsernameNotFoundException {
         for (User user : this.findAll()) {
@@ -51,7 +51,7 @@ public class UserSqlDAO implements UserDao {
         }
         throw new UsernameNotFoundException("User " + username + " was not found.");
     }
-    //Create account, Username/Password req. No duplicates
+
     @Override
     public boolean create(String username, String password) {
         boolean userCreated = false;
@@ -78,7 +78,7 @@ public class UserSqlDAO implements UserDao {
 
         return userCreated && accountCreated;
     }
-    //MapRow for User
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getLong("user_id"));

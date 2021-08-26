@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.techelevator.tenmo.model.Account;
 
 import javax.sql.DataSource;
-//implents AccountDAO Class
+
 @Service 
 public class JDBCAccountDAO implements AccountDAO {
 	
@@ -22,9 +22,7 @@ public class JDBCAccountDAO implements AccountDAO {
 	public JDBCAccountDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
-
-	// Returns Get Balance From Accounts based on User ID
+	
 	@Override
 	public BigDecimal getBalance(int userId) {
 		String sqlString = "SELECT balance FROM accounts WHERE user_id = ?";
@@ -40,7 +38,7 @@ public class JDBCAccountDAO implements AccountDAO {
 	}
 	return balance;
 	}
-	// Adds Balance using paramaters Account ID, add user imput balance
+
 	@Override
 	public BigDecimal addToBalance(BigDecimal amountToAdd, int id) {
 		Account account = findAccountById(id);
@@ -55,7 +53,6 @@ public class JDBCAccountDAO implements AccountDAO {
 		return newBalance;
 	}
 
-	// Subtracts from Balance where Balance is inputed and account ID is inputed
 	@Override
 	public BigDecimal subtractFromBalance(BigDecimal amountToSubtract, int id) {
 		Account account = findAccountById(id);
@@ -69,7 +66,7 @@ public class JDBCAccountDAO implements AccountDAO {
 		System.out.println(newBalance);
 		return newBalance;
 	}
-	// Find user through SQL where user_id is inputed returns all Account info
+
 	@Override
 	public Account findUserById(int userId) {
 		String sqlString = "SELECT * FROM accounts WHERE user_id = ?";
@@ -82,7 +79,7 @@ public class JDBCAccountDAO implements AccountDAO {
 		}
 		return account;
 	}
-	//Returns All account by account ID
+	
 	@Override
 	public Account findAccountById(int id) {
 		Account account = null;
@@ -93,7 +90,7 @@ public class JDBCAccountDAO implements AccountDAO {
 		}
 		return account;
 	}
-	//Returns Account by User ID
+
 	public Account findAccountByUserId(int id) {
 		Account account = null;
 		System.out.println(id);
@@ -104,7 +101,7 @@ public class JDBCAccountDAO implements AccountDAO {
 		}
 		return account;
 	}
-	//mapRow for account, using setbalance method/set account method/set user ID method
+	
 	private Account mapRowToAccount(SqlRowSet result) {
 		Account account = new Account();
 		account.setBalance(result.getBigDecimal("balance"));

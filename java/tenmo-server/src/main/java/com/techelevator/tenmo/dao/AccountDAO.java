@@ -3,7 +3,7 @@ package com.techelevator.tenmo.dao;
 import java.math.BigDecimal;
 
 import com.techelevator.tenmo.model.Account;
-//interface for Account
+
 public interface AccountDAO {
 	BigDecimal getBalance(int userId);
 	BigDecimal addToBalance(BigDecimal amountToAdd, int id);

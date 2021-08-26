@@ -62,22 +62,4 @@ public class TenmoController {
 		return results;
 	}
 
-//	@RequestMapping(path = "request", method = RequestMethod.POST)
-//	public String requestTransferRequest(@RequestBody Transfers transfer) {
-//		String results = transfersDAO.requestTransfer(transfer.getAccountFrom(), transfer.getAccountTo(), transfer.getAmount());
-//		return results;
-//	}
-//
-//	@RequestMapping(value = "request/{id}", method = RequestMethod.GET)
-//	public List<Transfers> getAllTransferRequests(@PathVariable int id) {
-//		List<Transfers> output = transfersDAO.getPendingRequests(id);
-//		return output;
-//	}
-//
-//	@RequestMapping(path = "transfer/status/{statusId}", method = RequestMethod.PUT)
-//	public String updateRequest(@RequestBody Transfers transfer, @PathVariable int statusId) {
-//		String output = transfersDAO.updateTransferRequest(transfer, statusId);
-//		return output;
-//	}
-	
 }

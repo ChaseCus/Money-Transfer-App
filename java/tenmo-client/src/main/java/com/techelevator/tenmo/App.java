@@ -118,7 +118,7 @@ private static final String API_BASE_URL = "http://localhost:8080/";
 			System.out.println(i.getTransferId() + "\t\t" + toOrFrom + nameOfUser + "\t\t$" + i.getAmount());
 		}
 		System.out.print("-------------------------------------------\r\n" +
-				"Please enter transfer ID to view details: ");
+				"Please enter transfer ID to view details (0 to go back to previous menu): ");
 		Scanner scanner = new Scanner(System.in);
 		String userInput = scanner.nextLine();
 		int transferId = Integer.parseInt(userInput);

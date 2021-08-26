@@ -4,16 +4,20 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class TenmoDaoTest {
+
+public class TenmoDaoTest extends SpringBootServletInitializer {
 
     public static SingleConnectionDataSource dataSource;
+
 
     @BeforeClass
     public static void setupDataSource() {
